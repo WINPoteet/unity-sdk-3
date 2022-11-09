@@ -328,6 +328,7 @@ namespace FeedFM
                 // start loading up the song
             
                 _unityWebRequest = UnityWebRequestMultimedia.GetAudioClip(audioTrack.AudioFile.Url, AudioType.MPEG); // TODO: Ask about AudioType
+                ((DownloadHandlerAudioClip)_unityWebRequest.downloadHandler).streamAudio = true;
                 yield return _unityWebRequest.SendWebRequest();
             
                 AudioClip clip = null;
